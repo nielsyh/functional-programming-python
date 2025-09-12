@@ -2,9 +2,7 @@ def double_list_imperative(nums: list[int]) -> list[int]:
     """
     # TODO recreate this function declarative style
     """
-    for i in range(len(nums)):
-        nums[i] = nums[i] * 2
-    return nums
+    return list(map(lambda x: x * 2, nums))
 
 
 # Tests

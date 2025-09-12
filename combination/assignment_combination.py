@@ -26,12 +26,15 @@ sales_data: SalesData = [
 # EXERCISE 1: Basic filtering and mapping
 # Use filter and map to find all Electronics items and calculate their total value (price * quantity)
 def exercise_1(sales_data: SalesData) -> List[float]:
-    pass
+    electronics = filter(lambda x: x[3] == "Electronics", sales_data)
+    return list(map(lambda x: x[1] * x[2], electronics))
+
 
 # EXERCISE 2: Complex filtering with reduce
 # Use filter to get items with quantity > 2, then use reduce to find the total revenue
 def exercise_2(sales_data: SalesData) -> float:
-    pass
+    high_quantity = filter(lambda x: x[2] > 2, sales_data)
+    return reduce(lambda acc, x: acc + (x[1] * x[2]), high_quantity, 0.0)
 
 
 # EXERCISE 3: Combining all three functions
@@ -39,19 +42,34 @@ def exercise_2(sales_data: SalesData) -> float:
 # 2. Map to get just the total value (price * quantity) for each
 # 3. Use reduce to sum all values
 def exercise_3(sales_data: SalesData) -> float:
-    pass
+    expensive_items = filter(lambda x: x[1] > 50, sales_data)
+    values = map(lambda x: x[1] * x[2], expensive_items)
+    return reduce(lambda acc, x: acc + x, values, 0.0)
 
 
 # EXERCISE 4: Category analysis (Advanced)
 # Create a function that takes a category name and returns the average item value in that category
 def average_value_by_category(sales_data: SalesData, category: str) -> float:
-    pass
+    category_items = filter(lambda x: x[3] == category, sales_data)
+    values: List[float] = list(map(lambda x: x[1] * x[2], category_items))
+    if not values:
+        return 0.0
+    return reduce(lambda acc, x: acc + x, values, 0.0) / len(values)
 
 
 # EXERCISE 5: Challenge - Most valuable category
 # Find which category has the highest total revenue using functional programming
 def most_valuable_category(sales_data: SalesData) -> str:
-    pass
+    categories = set(map(lambda x: x[3], sales_data))
+    category_totals = map(
+            lambda cat: (cat, reduce(
+                    lambda acc, x: acc + (x[1] * x[2]),
+                    filter(lambda x: x[3] == cat, sales_data),
+                    0.0
+            )),
+            categories
+    )
+    return reduce(lambda max_cat, current: current if current[1] > max_cat[1] else max_cat, category_totals)[0]
 
 
 # BONUS EXERCISES: More advanced functional programming patterns
@@ -59,18 +77,32 @@ def most_valuable_category(sales_data: SalesData) -> str:
 # EXERCISE 6: Product analysis
 # Find the most expensive single item (highest price * quantity) using functional programming
 def most_expensive_item(sales_data: SalesData) -> Tuple[str, float]:
-    pass
+    item_values = map(lambda x: (x[0], x[1] * x[2]), sales_data)
+    return reduce(
+            lambda max_item, current: current if current[1] > max_item[1] else max_item,
+            item_values
+    )
+
 
 # EXERCISE 7: Statistical analysis
 # Calculate the median total value across all items using functional programming
 def median_item_value(sales_data: SalesData) -> float:
-    pass
+    values: List[float] = sorted(map(lambda x: x[1] * x[2], sales_data))
+    n: int = len(values)
+    if n % 2 == 0:
+        return (values[n // 2 - 1] + values[n // 2]) / 2
+    else:
+        return values[n // 2]
 
 
 # EXERCISE 8: Multi-criteria filtering
 # Find items that are either Electronics over $300 OR Home items with quantity > 3
 def complex_filter(sales_data: SalesData) -> List[Tuple[str, float]]:
-    pass
+    filtered_items = filter(
+            lambda x: (x[3] == "Electronics" and x[1] > 300) or (x[3] == "Home" and x[2] > 3),
+            sales_data
+    )
+    return list(map(lambda x: (x[0], x[1] * x[2]), filtered_items))
 
 
 # Run all exercises and tests
