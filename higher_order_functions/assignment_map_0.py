@@ -38,7 +38,7 @@ def apply_operation_declarative(numbers: List[int],
     """
     # TODO: Implement this function using `map()`.
     # The solution should be a single, declarative line of code.
-    return list(map(operation, numbers))
+    pass
 
 
 # Test cases for the user's implementation

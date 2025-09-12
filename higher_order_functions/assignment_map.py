@@ -7,12 +7,12 @@ def celsius_to_fahrenheit_imperative(celsius_temps: list[int | float]) -> list[f
 
 def celsius_to_fahrenheit_coph(celsius_temps: list[int | float]) -> list[float]:
     # implement using list comprehension
-    return [c * 9 / 5 + 32 for c in celsius_temps]
+    pass
 
 
 def celsius_to_fahrenheit_decl(celsius_temps: list[int | float]) -> list[float]:
     # implement using map and lambda
-    return list(map(lambda c: c * 9 / 5 + 32, celsius_temps))
+    pass
 
 
 celsius_list = [0, 20, 37, 100]
