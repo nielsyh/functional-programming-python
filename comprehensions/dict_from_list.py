@@ -4,7 +4,7 @@
 keys = ['a', 'b', 'c']
 values = [1, 2, 3]
 
-my_dict = {keys[i]: values[i] for i in range(len(keys))}
+my_dict = {}  # TODO
 
 # Test
 assert my_dict == {'a': 1, 'b': 2, 'c': 3}

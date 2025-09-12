@@ -8,12 +8,12 @@ def filter_odd_numbers(numbers: list[int]) -> list[int]:
 
 def filter_odd_numbers_functional(numbers: list[int]) -> list[int]:
     # Using filter and lambda function
-    return list(filter(lambda x: x % 2 != 0, numbers))
+    pass
 
 
 def filter_odd_numbers_comprehension(numbers: list[int]) -> list[int]:
     # Using list comprehension
-    return [x for x in numbers if x % 2 != 0]
+    pass
 
 
 # Example usage

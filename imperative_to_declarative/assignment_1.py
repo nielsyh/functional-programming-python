@@ -15,7 +15,6 @@ def factorial(n: int) -> int:
 
     return result
 
-    # return n * factorial(n - 1)
 
 
 # Tests

@@ -26,7 +26,7 @@ def execute_operation(numbers: List[Union[int, float]],
         The result of the operation.
     """
     # TODO: Implement this function by directly calling the `operation` function
-    return operation(numbers)
+    pass
 
 
 # Test cases
