@@ -1,5 +1,5 @@
 # Problem: Given two lists, create a dictionary that maps each key to its corresponding value.
-# only use a coperhension to solve this exercise.
+# only use a comprehensions to solve this exercise.
 
 keys = ['a', 'b', 'c']
 values = [1, 2, 3]

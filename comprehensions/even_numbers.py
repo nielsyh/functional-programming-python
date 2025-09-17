@@ -1,5 +1,5 @@
 # Problem: Create a list containing only the even numbers from a given list.
-# only use a coperhension to solve this exercise.
+# only use a comprehensions to solve this exercise.
 
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 evens = []  # TODO

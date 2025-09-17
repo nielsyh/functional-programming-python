@@ -1,5 +1,5 @@
 # Problem: Create a dictionary from a string where each key is a vowel and the value is its count.
-# only use a coperhension to solve this exercise.
+# only use a comprehensions to solve this exercise.
 
 text = "programming is fun"
 vowels = "aeiou"

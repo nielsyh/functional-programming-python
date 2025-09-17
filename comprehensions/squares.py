@@ -1,5 +1,5 @@
 # Problem: Create a list of the squares of the numbers from 1 to 10.
-# only use a coperhension to solve this exercise.
+# only use a comprehensions to solve this exercise.
 
 squares = []  # TODO
 
