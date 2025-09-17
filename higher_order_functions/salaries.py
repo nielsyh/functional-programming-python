@@ -23,20 +23,30 @@ employees: List[Employee] = [
 # the employee's role is 'Senior Developer' AND their years at the company
 # are greater than 5.
 # The `filter()` function returns a `filter` object (an iterator), not a list.
-eligible_employees_filter = None
+eligible_employees_filter = filter(
+    lambda emp: emp['role'] == 'Senior Developer' and emp['years_at_company'] > 5,
+    employees
+)
 # Hint: At this point, `eligible_employees_filter` contains Bob, Eve, and Grace.
 
 # Step 2: Map the filtered list to their salaries.
 # We use a lambda function to extract the 'salary' from each employee dictionary.
 # The `map()` function returns a `map` object (an iterator), not a list.
-salaries_map = None
+salaries_map = map(
+    lambda emp: emp['salary'],
+    eligible_employees_filter
+)
 # Hint: `salaries_map` now yields 90000, 95000, and 105000.
 
 # Step 3: Reduce the salaries to a single total.
 # We use a lambda function to cumulatively sum the elements.
 # The `reduce()` function applies the function to the first two items, then applies
 # it to the result and the next item, and so on, until a single value is returned.
-total_salary = None
+total_salary = reduce(
+    lambda x, y: x + y,
+    salaries_map
+)
+
 # --- Test ---
 # The expected total salary is 90000 + 95000 + 105000 = 290000.
 expected_total = 290000

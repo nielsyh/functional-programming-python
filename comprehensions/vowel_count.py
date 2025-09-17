@@ -3,7 +3,7 @@
 
 text = "programming is fun"
 vowels = "aeiou"
-vowel_counts = {}  # TODO
+vowel_counts = {vowel: text.count(vowel) for vowel in vowels}
 
 # Test
 assert vowel_counts == {'a': 1, 'e': 0, 'i': 2, 'o': 1, 'u': 1}
